@@ -34,9 +34,15 @@ public:
 int main()
 {
 	CTestEx a;
-	CTest &rData = a;
-	rData.SetData(15);
+	CTest &rData = a;		// 이거 이상하다.
+	rData.SetData(15);		// 어떤 멤버함수가 호출이 되나? CTest? CTestEx?
 	cout << rData.GetData() << endl;
+
+	CTest *pData = new CTestEx;		// 이거 이상하다?
+	pData->SetData(12);
+	cout << pData->GetData() << endl;
+	delete pData;
+	pData = nullptr;
 }
 
 // 36번 줄
@@ -55,3 +61,9 @@ int main()
 // 38번 줄
 // 부모 클래스의 참조형의 원본이 자식 클래스이지만 참조형의 메서드는 부모 클래스의 메서드로 인식된다.
 // 따라서 값 보정을 하지 않은 상태로 15가 그대로 적용이 된다.
+
+// 41번 줄
+// CTest형 포인터 변수를 이용하여 CTestEX 크기만큼 동적할당 하였다.
+// 여기서도 '실형식'은 pData이므로, pData 클래스의 메소드를 사용하게 된다.
+// 하지만 이런 형식은 쓰지 말도록
+// 자식 클래스인 CTestEx의 소멸자가 불리지 않기때문이다.
