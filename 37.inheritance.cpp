@@ -31,7 +31,7 @@ class CTestEx : public CTest		// 상속 방법
 {
 public:
 	CTestEx() { cout << "CTestEx 생성자" << endl; }
-	//~CTestEX() { cout << "CTestEx 소멸자" << endl; }
+	~CTestEx() { cout << "CTestEx 소멸자" << endl; }
 	void TestFunc()
 	{
 		PrintData();
@@ -60,11 +60,6 @@ int main()
 // public을 사용하여 상속을 하였다.
 // 상속은 부모와 자식관계로 나타낼 수 있는데, 프로그래밍에서는 기존의 코드를 '재사용'한다는 의미와 같다.
 // 상속 예약어는 private, protected, public 3가지를 사용할 수 있다.
-// 37 ~ 39번 줄에서 다시 설명
-
-// 34번 줄
-// 상속받은 자식 클래스는 소멸자가 필요하지 않다.
-// 부모의 소멸자가 불리면서 자식 또한 삭제되기 때문이다.
 
 // 37 ~ 39번 줄
 // 매우 중요한 내용 ~~~~~~~~
