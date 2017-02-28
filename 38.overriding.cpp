@@ -41,7 +41,7 @@ int main()
 	CTestEx b;
 
 	b.SetData(15);					// 묵시적 호출
-									//b.CTest::SetData(15);			// 명시적 호출
+	//b.CTest::SetData(15);			// 명시적 호출
 	cout << b.GetData() << endl;
 }
 
