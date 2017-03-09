@@ -42,7 +42,7 @@ int main()
 
 	// 이후는 이상하구만
 	CRectangle *pRect = dynamic_cast<CRectangle*>(pShape);
-	if (NULL != pRect)			// 제대로 값이 들어갔는지 확인한다.
+	if (NULL != pRect)		// 제대로 값이 들어갔는지 확인한다.
 		pRect->Draw();
 	
 	else
