@@ -46,7 +46,7 @@ int main()
 	//CTest *pData = new CTest;
 	CTestEx *pNewData = nullptr;
 
-	pData->SetData(15);	// CTest형
+	pData->SetData(15);		// CTest형
 
 	pNewData = static_cast<CTestEx*>(pData);		// 형변환 및 힙에 있는 데이터의 주소값 저장
 	pNewData->PrintData();			// 값의 검사를 하지 않는다.
