@@ -5,26 +5,26 @@ using namespace std;
 class CShape
 {
 public:
-	CShape() { cout << "CShape »ý¼ºÀÚ" << endl; }
-	virtual ~CShape() { cout << "CShape ¼Ò¸êÀÚ" << endl; }
+	CShape() { cout << "CShape ìƒì„±ìž" << endl; }
+	virtual ~CShape() { cout << "CShape ì†Œë©¸ìž" << endl; }
 	virtual void Draw() { cout << "CShape::Draw()" << endl; }
 };
 
 class CRectangle : public CShape
 {
 public:
-	virtual void Draw() { cout << "CRectangle::Draw()" << endl; }	// °¡»óÇÔ¼öÀÓÀ» ¸í½ÃÇÏ°í Á¤ÀÇ
+	virtual void Draw() { cout << "CRectangle::Draw()" << endl; }	// ê°€ìƒí•¨ìˆ˜ìž„ì„ ëª…ì‹œí•˜ê³  ì •ì˜
 };
 
 class CCircle : public CShape
 {
 public:
-	virtual void Draw() { cout << "CCircle::Draw()" << endl; }		// ÀÌ°Íµµ °¡»óÇÔ¼ö
+	virtual void Draw() { cout << "CCircle::Draw()" << endl; }		// ì´ê²ƒë„ ê°€ìƒí•¨ìˆ˜
 };
 
 int main()
 {
-	cout << "µµÇü ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. [1. »ç°¢Çü, 2. ¿ø]" << endl;
+	cout << "ë„í˜• ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”. [1. ì‚¬ê°í˜•, 2. ì›]" << endl;
 	int nInput = 0;
 	cin >> nInput;
 
@@ -38,17 +38,17 @@ int main()
 	else
 		pShape = new CShape;
 
-	pShape->Draw();		// º°´Ù¸¥ Æ¯Â¡¾ø´Â ¸â¹öÇÔ¼ö È£Ãâ
+	pShape->Draw();		// ë³„ë‹¤ë¥¸ íŠ¹ì§•ì—†ëŠ” ë©¤ë²„í•¨ìˆ˜ í˜¸ì¶œ
 
-	// ÀÌÈÄ´Â ÀÌ»óÇÏ±¸¸¸
+	// ì´í›„ëŠ” ì´ìƒí•˜êµ¬ë§Œ
 	CRectangle *pRect = dynamic_cast<CRectangle*>(pShape);
-	if (NULL != pRect)		// Á¦´ë·Î °ªÀÌ µé¾î°¬´ÂÁö È®ÀÎÇÑ´Ù.
+	if (NULL != pRect)			// ì œëŒ€ë¡œ ê°’ì´ ë“¤ì–´ê°”ëŠ”ì§€ í™•ì¸í•œë‹¤.
 		pRect->Draw();
 	
 	else
 	{
 		CCircle *pCircle = dynamic_cast<CCircle*>(pShape);
-		if (NULL != pCircle)		// Á¦´ë·Î °ªÀÌ µé¾î°¬´ÂÁö È®ÀÎÇÑ´Ù.
+		if (NULL != pCircle)		// ì œëŒ€ë¡œ ê°’ì´ ë“¤ì–´ê°”ëŠ”ì§€ í™•ì¸í•œë‹¤.
 			pCircle->Draw();
 
 		else
@@ -56,24 +56,24 @@ int main()
 	}
 }
 
-// 16, 22¹ø ÁÙ
-// ºÎ¸ðÅ¬·¡½ºÀÇ »ó¼Ó¹ÞÀº °¡»óÇÔ¼öÀÓÀ» virtualÀ» »ç¿ëÇÏ¿© ¸í½ÃÇÏ°í ÀÖ´Ù.
-// ¶ÇÇÑ »ó¼Ó¹ÞÀº Draw()ÇÔ¼ö¸¦ ÀÚ½ÄÅ¬·¡µé¿¡ ¸Â°Ô ¿À¹ö¶óÀÌµùÇÏ°í ÀÖ´Ù.
+// 16, 22ë²ˆ ì¤„
+// ë¶€ëª¨í´ëž˜ìŠ¤ì˜ ìƒì†ë°›ì€ ê°€ìƒí•¨ìˆ˜ìž„ì„ virtualì„ ì‚¬ìš©í•˜ì—¬ ëª…ì‹œí•˜ê³  ìžˆë‹¤.
+// ë˜í•œ ìƒì†ë°›ì€ Draw()í•¨ìˆ˜ë¥¼ ìžì‹í´ëž˜ë“¤ì— ë§žê²Œ ì˜¤ë²„ë¼ì´ë”©í•˜ê³  ìžˆë‹¤.
 
-// 41¹ø ÁÙ
-// °¡»óÇÔ¼ö¸¦ »ç¿ëÇßÀ¸¹Ç·Î ÂüÁ¶Çü½ÄÀ¸·Î ´ëÀÔÇØµµ ½ÇÇü½ÄÀÇ ¸â¹öÇÔ¼ö°¡ ºÒ¸®°Ô µÇ¹Ç·Î ¾ÆÁÖ °£°áÇÑ ¹®ÀåÀÌ´Ù.
-// ¾ÆÁÖ ¸¹ÀÌ »ç¿ëÇÒ ±â´ÉÀÌ¹Ç·Î Àß ±â¾ïÇØµÎµµ·Ï
+// 41ë²ˆ ì¤„
+// ê°€ìƒí•¨ìˆ˜ë¥¼ ì‚¬ìš©í–ˆìœ¼ë¯€ë¡œ ì°¸ì¡°í˜•ì‹ìœ¼ë¡œ ëŒ€ìž…í•´ë„ ì‹¤í˜•ì‹ì˜ ë©¤ë²„í•¨ìˆ˜ê°€ ë¶ˆë¦¬ê²Œ ë˜ë¯€ë¡œ ì•„ì£¼ ê°„ê²°í•œ ë¬¸ìž¥ì´ë‹¤.
+// ì•„ì£¼ ë§Žì´ ì‚¬ìš©í•  ê¸°ëŠ¥ì´ë¯€ë¡œ ìž˜ ê¸°ì–µí•´ë‘ë„ë¡
 
-// 44 ~ 57¹ø ÁÙ
-// if ~ else¸¦ ÀÌ¿ëÇÑ µ¿ÀûÇÒ´ç¿¡¼­ÀÇ Çüº¯È¯À» »ç¿ëÇÏ°í ±×¿¡ µû¶ó ¸â¹öÇÔ¼ö¸¦ È£ÃâÇÏ°í ÀÖ´Ù.
-// °¡»óÇÔ¼ö¸¦ »ç¿ëÇØ¼­ ÂüÁ¶Çü½Ä°ú ½ÇÇü½ÄÀÇ ±â¹ýÀ» ±»ÀÌ if ~ else¹®À» »ç¿ëÇØ¼­ ±¸ÇöÇÏ¿´´Ù.
-// if ~ else´Â Ç×»ó ºñ±³¸¦ ÇÏ¹Ç·Î ¼º´É¿¡ Àå¾Ö°¡ µÈ´Ù.
+// 44 ~ 57ë²ˆ ì¤„
+// if ~ elseë¥¼ ì´ìš©í•œ ë™ì í• ë‹¹ì—ì„œì˜ í˜•ë³€í™˜ì„ ì‚¬ìš©í•˜ê³  ê·¸ì— ë”°ë¼ ë©¤ë²„í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•˜ê³  ìžˆë‹¤.
+// ê°€ìƒí•¨ìˆ˜ë¥¼ ì‚¬ìš©í•´ì„œ ì°¸ì¡°í˜•ì‹ê³¼ ì‹¤í˜•ì‹ì˜ ê¸°ë²•ì„ êµ³ì´ if ~ elseë¬¸ì„ ì‚¬ìš©í•´ì„œ êµ¬í˜„í•˜ì˜€ë‹¤.
+// if ~ elseëŠ” í•­ìƒ ë¹„êµë¥¼ í•˜ë¯€ë¡œ ì„±ëŠ¥ì— ìž¥ì• ê°€ ëœë‹¤.
 //
-// dynamic_cast´Â Çüº¯È¯¿¡ ½ÇÆÐÇÏ¸é NULLÀ» ¹ÝÈ¯ÇÑ´Ù.
-// ±×·¸±â¿¡ if ~ else¹®¿¡¼­ º¯¼ö°¡ Æ÷ÀÎÅÍÇüÀÓ¿¡µµ nullptrÀÌ ¾Æ´Ñ NULL·Î ºñ±³¸¦ ÇØÁÖ°í ÀÖ´Ù.
+// dynamic_castëŠ” í˜•ë³€í™˜ì— ì‹¤íŒ¨í•˜ë©´ NULLì„ ë°˜í™˜í•œë‹¤.
+// ê·¸ë ‡ê¸°ì— if ~ elseë¬¸ì—ì„œ ë³€ìˆ˜ê°€ í¬ì¸í„°í˜•ìž„ì—ë„ nullptrì´ ì•„ë‹Œ NULLë¡œ ë¹„êµë¥¼ í•´ì£¼ê³  ìžˆë‹¤.
 //
-// Æ¯È÷ 45, 51°°ÀÌ °ªÀÌ Á¦´ë·Î µé¾î°¬´ÂÁö È®ÀÎÇÏ´Â ¹æ½ÄÀ» RTTI(Run-Time Type Information or Identification)ÀÌ¶ó°í ÇÑ´Ù.
+// íŠ¹ížˆ 45, 51ê°™ì´ ê°’ì´ ì œëŒ€ë¡œ ë“¤ì–´ê°”ëŠ”ì§€ í™•ì¸í•˜ëŠ” ë°©ì‹ì„ RTTI(Run-Time Type Information or Identification)ì´ë¼ê³  í•œë‹¤.
 
-// ¿¹Á¦¿¡¼­ ºÃµíÀÌ dynamic_cast´Â µ¿ÀûÇÒ´çÇÑ »óÈ²¿¡¼­ Çüº¯È¯¿¡ »ç¿ëÇÑ´Ù.
-// ÇÏÁö¸¸ µ¿½Ã¿¡ »ó¼ÓÀ» ÀÌ¿ëÇÑ ÂüÁ¶Çü½Ä°ú ½ÇÇü½ÄÀ» ÀÌ¿ëÇÑ ±â¹ýº¸´Ù ¹ø°Å·Ó°í ÀÚ¿ø¼Ò¸ð°¡ ½ÉÇÏ´Ù´Â °ÍÀ» ¾Ë ¼ö ÀÖ´Ù.
-// Á¤¸» ÇÊ¿äÇÑ ¼ø°£ÀÌ ¾Æ´Ï¸é dynamic_cast´Â »ç¿ëÇÏÁö ¸»ÀÚ.
+// ì˜ˆì œì—ì„œ ë´¤ë“¯ì´ dynamic_castëŠ” ë™ì í• ë‹¹í•œ ìƒí™©ì—ì„œ í˜•ë³€í™˜ì— ì‚¬ìš©í•œë‹¤.
+// í•˜ì§€ë§Œ ë™ì‹œì— ìƒì†ì„ ì´ìš©í•œ ì°¸ì¡°í˜•ì‹ê³¼ ì‹¤í˜•ì‹ì„ ì´ìš©í•œ ê¸°ë²•ë³´ë‹¤ ë²ˆê±°ë¡­ê³  ìžì›ì†Œëª¨ê°€ ì‹¬í•˜ë‹¤ëŠ” ê²ƒì„ ì•Œ ìˆ˜ ìžˆë‹¤.
+// ì •ë§ í•„ìš”í•œ ìˆœê°„ì´ ì•„ë‹ˆë©´ dynamic_castëŠ” ì‚¬ìš©í•˜ì§€ ë§ìž.
