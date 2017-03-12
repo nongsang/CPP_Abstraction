@@ -5,16 +5,16 @@ using namespace std;
 template<typename T>
 T Add(T a, T b) { return a + b; }
 
-template<>			// ÅÛÇÃ¸´ Æ¯¼öÈ­
-char* Add(char* pszLeft, char* pszRight)		// ÅÛÇÃ¸´ Æ¯¼öÈ­¸¦ »ç¿ëÇÏ±â À§ÇÑ Á¶°Ç
-												//char* Add<char*>(char* pszLeft, char* pszRight)	// ¸í½ÃÀûÀÎ ÅÛÇÃ¸´ Æ¯¼öÈ­
+template<>			// í…œí”Œë¦¿ íŠ¹ìˆ˜í™”
+char* Add(char* pszLeft, char* pszRight)		// í…œí”Œë¦¿ íŠ¹ìˆ˜í™”ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ì¡°ê±´
+//char* Add<char*>(char* pszLeft, char* pszRight)	// ëª…ì‹œì ì¸ í…œí”Œë¦¿ íŠ¹ìˆ˜í™”
 {
 	int nLenLeft = strlen(pszLeft);
 	int nLenRight = strlen(pszRight);
 	char* pszResult = new char[nLenLeft + nLenRight + 1];
 
-	strcpy_s(pszResult, nLenLeft + 1, pszLeft);		// ÀÌ°Å Áß¿äÇÔ
-	strcpy_s(pszResult + nLenLeft, nLenRight + 1, pszRight);	// ÀÌ°Íµµ
+	strcpy_s(pszResult, nLenLeft + 1, pszLeft);		// ì´ê±° ì¤‘ìš”í•¨
+	strcpy_s(pszResult + nLenLeft, nLenRight + 1, pszRight);	// ì´ê²ƒë„
 
 	return pszResult;
 }
@@ -29,28 +29,28 @@ int main()
 	delete[] pszResult;
 }
 
-// 8¹ø ÁÙ
-// ÅÛÇÃ¸´À» »ç¿ëÇÏµÇ ¾Æ¹«°Íµµ ¼±¾ðÀ» ¾ÈÇß´Ù.
-// template<typename T>ÀÌ¶ó°í »ç¿ëÇØµµ »ó°ü¾ø´Ù.
-// ±×³É ÅÛÇÃ¸´ Æ¯¼öÈ­¸¦ °­Á¶ÇÏ±âÀ§ÇØ¼­ template<>¶ó°í »ç¿ëÇÏ´ÂÆíÀÌ ¸¹´Ù.
+// 8ë²ˆ ì¤„
+// í…œí”Œë¦¿ì„ ì‚¬ìš©í•˜ë˜ ì•„ë¬´ê²ƒë„ ì„ ì–¸ì„ ì•ˆí–ˆë‹¤.
+// template<typename T>ì´ë¼ê³  ì‚¬ìš©í•´ë„ ìƒê´€ì—†ë‹¤.
+// ê·¸ëƒ¥ í…œí”Œë¦¿ íŠ¹ìˆ˜í™”ë¥¼ ê°•ì¡°í•˜ê¸°ìœ„í•´ì„œ template<>ë¼ê³  ì‚¬ìš©í•˜ëŠ”íŽ¸ì´ ë§Žë‹¤.
 
-// 9 ~ 20¹ø ÁÙ
-// ÅÛÇÃ¸´ Æ¯¼öÈ­¸¦ »ç¿ëÇÑ ÇÔ¼ö Á¤ÀÇ
-// ¿©±â¼­ ÇÔ¼öÀÇ ½ÃÀÛ ºÎºÐÀ» À¯ÀÇÇÏÀÚ.
-// ¼±ÇàµÇ¾î¾ß ÇÏ´Â °ÍÀº 8¹ø ÁÙÃ³·³ ÅÛÇÃ¸´ ¼±¾ðÀÌ µÇ¾î¾ß ÇÑ´Ù.
-// ±× ÈÄ¿¡ ÇÔ¼öÀÇ ÀÌ¸§Àº ÅÛÇÃ¸´ ÇÔ¼ö¿Í °°À¸¸ç ¹ÝÈ¯Çü, ÆÄ¶ó¹ÌÅÍÀÇ ÀÚ·áÇüÀÌ ¸ðµÎ char*ÇüÀ¸·Î ÅëÀÏÀÌ µÇ¾î¾ß ÅÛÇÃ¸´ Æ¯¼öÈ­¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
-// ±×·¸Áö ¾Ê´Ù¸é ÅÛÇÃ¸´ Æ¯¼öÈ­·Î ÀÎ½ÄÇÏÁö ¾Ê´Â´Ù.
-// ´Ü¼øÈ÷ ÀÌ¸§ÀÌ °°Àº ÇÔ¼ö·Î ÀÎ½ÄÇÏ¹Ç·Î ¿À·ù¸¦ »Õ¾î³½´Ù.
+// 9 ~ 20ë²ˆ ì¤„
+// í…œí”Œë¦¿ íŠ¹ìˆ˜í™”ë¥¼ ì‚¬ìš©í•œ í•¨ìˆ˜ ì •ì˜
+// ì—¬ê¸°ì„œ í•¨ìˆ˜ì˜ ì‹œìž‘ ë¶€ë¶„ì„ ìœ ì˜í•˜ìž.
+// ì„ í–‰ë˜ì–´ì•¼ í•˜ëŠ” ê²ƒì€ 8ë²ˆ ì¤„ì²˜ëŸ¼ í…œí”Œë¦¿ ì„ ì–¸ì´ ë˜ì–´ì•¼ í•œë‹¤.
+// ê·¸ í›„ì— í•¨ìˆ˜ì˜ ì´ë¦„ì€ í…œí”Œë¦¿ í•¨ìˆ˜ì™€ ê°™ìœ¼ë©° ë°˜í™˜í˜•, íŒŒë¼ë¯¸í„°ì˜ ìžë£Œí˜•ì´ ëª¨ë‘ char*í˜•ìœ¼ë¡œ í†µì¼ì´ ë˜ì–´ì•¼ í…œí”Œë¦¿ íŠ¹ìˆ˜í™”ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
+// ê·¸ë ‡ì§€ ì•Šë‹¤ë©´ í…œí”Œë¦¿ íŠ¹ìˆ˜í™”ë¡œ ì¸ì‹í•˜ì§€ ì•ŠëŠ”ë‹¤.
+// ë‹¨ìˆœížˆ ì´ë¦„ì´ ê°™ì€ í•¨ìˆ˜ë¡œ ì¸ì‹í•˜ë¯€ë¡œ ì˜¤ë¥˜ë¥¼ ë¿œì–´ë‚¸ë‹¤.
 //
-// 10¹øÂ° ÁÙ
-// ¸í½ÃÀûÀ¸·Î ÅÛÇÃ¸´ Æ¯¼öÈ­¸¦ ¼±¾ðÇÏ´Â ¹æ¹ýÀÌ´Ù.
-// <>¸¦ »ç¿ëÇÏ¿© ¸í½ÃÀûÀ¸·Î »ç¿ëÇÒ ÀÚ·áÇüÀ» ÀÔ·ÂÇØÁØ´Ù.
-// ¸¸¾à ÀÌÃ³·³ ¸í½ÃÀûÀ¸·Î »ç¿ëÇÒ °æ¿ì 8¹ø ÁÙ¿¡¼­ template<typename T>¶ó°í »ç¿ëÇÏ¸é ¾ÈµÇ°í template<>¶ó°í ÇØ¾ßÇÑ´Ù.
+// 10ë²ˆì§¸ ì¤„
+// ëª…ì‹œì ìœ¼ë¡œ í…œí”Œë¦¿ íŠ¹ìˆ˜í™”ë¥¼ ì„ ì–¸í•˜ëŠ” ë°©ë²•ì´ë‹¤.
+// <>ë¥¼ ì‚¬ìš©í•˜ì—¬ ëª…ì‹œì ìœ¼ë¡œ ì‚¬ìš©í•  ìžë£Œí˜•ì„ ìž…ë ¥í•´ì¤€ë‹¤.
+// ë§Œì•½ ì´ì²˜ëŸ¼ ëª…ì‹œì ìœ¼ë¡œ ì‚¬ìš©í•  ê²½ìš° 8ë²ˆ ì¤„ì—ì„œ template<typename T>ë¼ê³  ì‚¬ìš©í•˜ë©´ ì•ˆë˜ê³  template<>ë¼ê³  í•´ì•¼í•œë‹¤.
 //
-// »ó¼öÇüÀÎ ¹®ÀÚ¿­³¢¸® ´õÇÏ´Â ¹æ¹ýÀÌ´Ù.
-// 1. °¢ ÆÄ¶ó¹ÌÅÍ·Î ¹ÞÀº ¹®ÀÚ¿­ÀÇ Å©±â¸¦ ±¸ÇÑ´Ù.
-// 2. ÆÄ¶ó¹ÌÅÍ·Î ¹ÞÀº ¹®ÀÚ¿­ÀÇ Å©±âÀÇ ÇÕ + 1¸¸Å­ Èü¿¡ µ¿ÀûÇÒ´çÇÑ´Ù.
-// 3. µ¿ÀûÇÒ´çÇÑ °÷¿¡ Ã¹¹øÂ° ¹®ÀÚ¿­ Å©±â + 1¸¸Å­ ³Ö´Â´Ù. -> ÀÌÀ¯´Â \0µµ µé¾î°¡¹Ç·Î µü Ã¹ ¹®ÀÚ¿­¸¸Å­¸¸ µé¾î°£´Ù.
-// 4. µ¿ÀûÇÒ´çÇÑ °÷¿¡¼­ ½ÃÀÛÇÏ¿© Ã¹¹øÂ° ¹®ÀÚ¿­ÀÇ ³¡ À§Ä¡·Î ÀÌµ¿ÇÑ´Ù.
-// 5. µÎ¹øÂ° ¹®ÀÚ¿­ Å©±â + 1¸¸Å­ ³Ö´Â´Ù.
-// 6. ¸¶Áö¸·¿¡´Â \0ÀÌ »ðÀÔµÇ¾î Á¾·á
+// ìƒìˆ˜í˜•ì¸ ë¬¸ìžì—´ë¼ë¦¬ ë”í•˜ëŠ” ë°©ë²•ì´ë‹¤.
+// 1. ê° íŒŒë¼ë¯¸í„°ë¡œ ë°›ì€ ë¬¸ìžì—´ì˜ í¬ê¸°ë¥¼ êµ¬í•œë‹¤.
+// 2. íŒŒë¼ë¯¸í„°ë¡œ ë°›ì€ ë¬¸ìžì—´ì˜ í¬ê¸°ì˜ í•© + 1ë§Œí¼ íž™ì— ë™ì í• ë‹¹í•œë‹¤.
+// 3. ë™ì í• ë‹¹í•œ ê³³ì— ì²«ë²ˆì§¸ ë¬¸ìžì—´ í¬ê¸° + 1ë§Œí¼ ë„£ëŠ”ë‹¤. -> ì´ìœ ëŠ” \0ë„ ë“¤ì–´ê°€ë¯€ë¡œ ë”± ì²« ë¬¸ìžì—´ë§Œí¼ë§Œ ë“¤ì–´ê°„ë‹¤.
+// 4. ë™ì í• ë‹¹í•œ ê³³ì—ì„œ ì‹œìž‘í•˜ì—¬ ì²«ë²ˆì§¸ ë¬¸ìžì—´ì˜ ë ìœ„ì¹˜ë¡œ ì´ë™í•œë‹¤.
+// 5. ë‘ë²ˆì§¸ ë¬¸ìžì—´ í¬ê¸° + 1ë§Œí¼ ë„£ëŠ”ë‹¤.
+// 6. ë§ˆì§€ë§‰ì—ëŠ” \0ì´ ì‚½ìž…ë˜ì–´ ì¢…ë£Œ
