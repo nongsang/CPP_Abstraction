@@ -13,7 +13,7 @@ public:
 };
 
 template<>		// 여기서부터 템플릿 특수화를 사용해준다는 의미
-class CTest<char*>		// 형태를 잘 보렴
+class CTest<char*>		// 형태를 잘 보렴	. 명시적으로 특수화를 사용하겠다는 뜻
 {
 	char *m_pData;
 public:
