@@ -46,6 +46,5 @@ int main()
 
 // 33번 줄
 // 클래스 템플릿 특수화로 정의한 클래스가 호출된다.
-// 기본적으로 쓰이는 템플릿을 정의해도 어차피 같은 기능을 하는데 굳이 특수화를 써야하나?
 
-// 65.template_specialization_notgood에서 다뤄보자
+// 65.template_specialization_summary에서 정리해보자.
