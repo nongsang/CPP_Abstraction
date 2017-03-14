@@ -69,5 +69,4 @@ int main()
 
 // 이처럼 함수식을 인자로 넘겨주는 방식을 람다식이라고 한다.
 // 내가 만든 함수에서 람다식을 받기 위해서는 functional을 include해줘야 한다.
-// qsort()는 제너릭 함수이므로 functional은 필요없다.
-// qsort를 사용한 정렬에 람다를 사용해보자.
+// STL에서 제공하는 algorithm에서 sort도 람다를 사용할 수 있으니 살펴보자.
