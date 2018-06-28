@@ -8,7 +8,7 @@ public:
 	CTest() { cout << "CTest()" << endl; }						// 이 생성자가 없으면 자식 클래스의 디폴트 생성자를 호출할 수 없다.
 	CTest(int nParam) { cout << "CTest(int)" << endl; }			// 이 생성자가 없어지면 호환 가능한 변환생성자가 불린다. -> CTest(double)
 	CTest(double dParam) { cout << "CTest(double)" << endl; }	// 이 생성자가 없어지면 호환 가능한 변환생성자가 불린다. -> CTest(int)
-																// 두 생성자가 전부 없으면 디폴트 생성자가 호출된다.
+	// 두 생성자가 전부 없으면 디폴트 생성자가 호출된다.
 };
 
 class CTestEx : public CTest		// 상속
